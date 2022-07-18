@@ -68,7 +68,7 @@ class MedicationsList extends StatelessWidget {
               buttonColor: kPrimaryColor,
               circularRadius: 10,
               onTap: () {
-                Get.toNamed(ScreenName.pharmacyScreen,arguments:{'medication_id':medication.id});
+                Get.toNamed(ScreenName.pharmacyDetail,arguments:{'medication_id':medication.id});
               },
             ),
           ],

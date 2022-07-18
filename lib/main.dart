@@ -28,8 +28,5 @@ class MyApp extends StatelessWidget {
       initialRoute:ScreenName.splash,
       getPages: RoutingPage().getRout,
     );
-
-
-
   }
 }

@@ -4,7 +4,7 @@ import 'package:pharmacy/const/global_data.dart';
 import '../../const/colors.dart';
 import '../../model/medication_search_model.dart';
 import '../../widget/custom_text.dart';
-
+import 'package:get/get.dart';
 
 
 class MedicationSearchList extends StatelessWidget {
@@ -50,34 +50,69 @@ class MedicationSearchList extends StatelessWidget {
         const SizedBox(
           height: 15,
         ),
-        Row(
-          children: [
-            CustomText(
-              text:phrmacyModel.name!,
-              size: 14,
-              color: kPrimaryColor,
-              weight: FontWeight.bold,
-              padding:const EdgeInsets.all(15),
-            ),
-            const Spacer(),
-            CustomText(
-              text:phrmacyModel.quntity.toString(),
-              size: 14,
-              color: kPrimaryColor,
-              weight: FontWeight.bold,
-              padding:const EdgeInsets.all(15),
-            ),
-            const Spacer(),
-            CustomText(
-                text:phrmacyModel.mobile1!+"\n السعر:\t${phrmacyModel.price}",
-              size: 15,
-              color: kPrimaryColor,
-              weight: FontWeight.bold,
-              padding: const EdgeInsets.all(15),
-            ),
-            const Spacer(),
+        Card(
+          margin:EdgeInsets.all(18),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15.0),
+          ),
+          child: Container(
+            width:Get.width,
+            child: Column(
+              crossAxisAlignment:CrossAxisAlignment.start,
+              children: [
+                CustomText(
+                  text: " اسم الصيدلية:"+phrmacyModel.name!,
+                  size: 15,
+                  color: kPrimaryColor,
+                  weight: FontWeight.bold,
+                  padding: const EdgeInsets.all(8),
+                ),
 
-          ],
+                CustomText(
+                  text: " العنوان:"+phrmacyModel.address!,
+                  size: 15,
+                  color: kPrimaryColor,
+                  weight: FontWeight.bold,
+                  padding: const EdgeInsets.all(8),
+                ),
+                CustomText(
+                  text: " الموبايل:"+phrmacyModel.mobile1!,
+                  size: 15,
+                  color: kPrimaryColor,
+                  weight: FontWeight.bold,
+                  padding: const EdgeInsets.all(8),
+                ),
+                CustomText(
+                  text: " الهاتف:"+phrmacyModel.mobile2!,
+                  size: 15,
+                  color: kPrimaryColor,
+                  weight: FontWeight.bold,
+                  padding: const EdgeInsets.all(8),
+                ),
+                CustomText(
+                  text:"تاريخ الانتاج: "+phrmacyModel.productionDate.toString(),
+                  size: 15,
+                  color: kPrimaryColor,
+                  weight: FontWeight.bold,
+                  padding: const EdgeInsets.all(8),
+                ),
+                CustomText(
+                  text: " تاريخ الانتهاء:"+phrmacyModel.expiryDate!,
+                  size: 15,
+                  color: kPrimaryColor,
+                  weight: FontWeight.bold,
+                  padding: const EdgeInsets.all(8),
+                ),
+                CustomText(
+                  text: " تفاصيل العنوان:"+phrmacyModel.adderss_details!,
+                  size: 15,
+                  color: kPrimaryColor,
+                  weight: FontWeight.bold,
+                  padding: const EdgeInsets.all(8),
+                ),
+              ],
+            ),
+          ),
         ),
       ],
     );

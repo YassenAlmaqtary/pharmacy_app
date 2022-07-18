@@ -1,5 +1,5 @@
 //
-// import 'package:pharmacy/model/pharmacy_model.dart';
+// import 'package:pharmacy/model/pharmacy_detail_model.dart';
 //
 // class MedicationModel {
 // int? id;

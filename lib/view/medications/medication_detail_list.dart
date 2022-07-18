@@ -2,17 +2,16 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmacy/const/global_data.dart';
+import 'package:pharmacy/model/medication_detail_model.dart';
 import '../../const/colors.dart';
-import '../../model/pharmacy_model.dart';
-import '../../route/roueing_page.dart';
-import '../../widget/custom_button.dart';
+import '../../model/pharmacy_detail_model.dart';
 import '../../widget/custom_text.dart';
 import 'package:get/get.dart';
 
-class PharmacyList extends StatelessWidget {
-  PharmacyModel pharmacyModel;
+class MedicationDetailList extends StatelessWidget {
+  MedicationDetailModel medicationModel;
 
-  PharmacyList({required this.pharmacyModel, Key? key}) : super(key: key);
+  MedicationDetailList({required this.medicationModel, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +21,7 @@ class PharmacyList extends StatelessWidget {
       child: Column(
         children: [
           CachedNetworkImage(
-            imageUrl: GlobalData.url_image + pharmacyModel.photo!,
+            imageUrl: GlobalData.url_image + medicationModel.photo!,
             width: 350,
             height: 150,
             fit: BoxFit.cover,
@@ -46,7 +45,7 @@ class PharmacyList extends StatelessWidget {
                 crossAxisAlignment:CrossAxisAlignment.start,
                 children: [
                   CustomText(
-                    text: " اسم الصيدلية:"+pharmacyModel.name!,
+                    text: " الاسم التجاري :"+medicationModel.name!,
                     size: 15,
                     color: kPrimaryColor,
                     weight: FontWeight.bold,
@@ -54,61 +53,42 @@ class PharmacyList extends StatelessWidget {
                   ),
 
                   CustomText(
-                    text: " العنوان:"+pharmacyModel.address!,
+                    text: " الاسم العلمي:"+medicationModel.scientificName!,
                     size: 15,
                     color: kPrimaryColor,
                     weight: FontWeight.bold,
                     padding: const EdgeInsets.all(8),
                   ),
                   CustomText(
-                    text: " الموبايل:"+pharmacyModel.mobile1!,
+                    text: "السعر:\t"+medicationModel.price.toString()+"\t ريال",
                     size: 15,
                     color: kPrimaryColor,
                     weight: FontWeight.bold,
                     padding: const EdgeInsets.all(8),
                   ),
                   CustomText(
-                    text: " الهاتف:"+pharmacyModel.mobile2!,
+                    text: " الكمية:"+medicationModel.quntity.toString(),
                     size: 15,
                     color: kPrimaryColor,
                     weight: FontWeight.bold,
                     padding: const EdgeInsets.all(8),
                   ),
-                  CustomText(
-                    text: " تفاصيل العنوان:"+pharmacyModel.adderssDetails!,
-                    size: 15,
-                    color: kPrimaryColor,
-                    weight: FontWeight.bold,
-                    padding: const EdgeInsets.all(8),
-                  ),
-                  Row(
-                    mainAxisAlignment:MainAxisAlignment.spaceBetween,
-                    children: [
-                      CustomButton(
-                          width: 130,
-                          height: 40,
-                          text: " الادوية الرئيسية ",
-                          textColor: whiteColor,
-                          buttonColor: kPrimaryColor,
-                          circularRadius: 10,
-                          onTap: () {
-                            Get.toNamed(ScreenName.medicationDetail,arguments:{'pharmacy_id':pharmacyModel.id});
-                          }
-                      ),
 
-                      CustomButton(
-                          width: 130,
-                          height: 40,
-                          text: " الادويةالبديلة ",
-                          textColor: whiteColor,
-                          buttonColor: kPrimaryColor,
-                          circularRadius: 10,
-                          onTap: () {
-                            Get.toNamed(ScreenName.allterNativeDetail,arguments:{'pharmacy_id':pharmacyModel.id});
-                          }
-                      ),
-                    ],
-                  )
+                  CustomText(
+                    text:"تاريخ الانتاج: "+medicationModel.productionDate.toString(),
+                    size: 15,
+                    color: kPrimaryColor,
+                    weight: FontWeight.bold,
+                    padding: const EdgeInsets.all(8),
+                  ),
+                  CustomText(
+                    text: " تاريخ الانتهاء:"+medicationModel.expiryDate!,
+                    size: 15,
+                    color: kPrimaryColor,
+                    weight: FontWeight.bold,
+                    padding: const EdgeInsets.all(8),
+                  ),
+
                 ],
               ),
             ),

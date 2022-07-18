@@ -1,31 +1,58 @@
-
 class PharmacyModel {
   int? id;
-  int? quntity;
   String? name;
-  String? mobile;
+  String? address;
+  String? mobile1;
+  String? mobile2;
+  String? socialMedia;
   String? photo;
-  int? price;
+  String? pdfPath;
+  int? statuse;
+  String? updatedAt;
+  String? adderssDetails;
 
-  PharmacyModel({this.id, this.quntity, this.name, this.mobile, this.photo,this.price});
+  PharmacyModel(
+      {this.id,
+        this.name,
+        this.address,
+        this.mobile1,
+        this.mobile2,
+        this.socialMedia,
+        this.photo,
+        this.pdfPath,
+        this.statuse,
+        this.updatedAt,
+        this.adderssDetails});
 
   PharmacyModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    quntity = json['quntity'];
     name = json['name'];
-    mobile = json['mobile'];
+    address = json['address'];
+    mobile1 = json['mobile1'];
+    mobile2 = json['mobile2'];
+    socialMedia = json['social_media'];
     photo = json['photo'];
-    price = json['price'];
+    pdfPath = json['pdf_path'];
+    statuse = json['statuse'];
+    updatedAt = json['updated_at'];
+    adderssDetails = json['adderss_details'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
-    data['quntity'] = this.quntity;
     data['name'] = this.name;
-    data['mobile'] = this.mobile;
+    data['address'] = this.address;
+    data['mobile1'] = this.mobile1;
+    data['mobile2'] = this.mobile2;
+    data['social_media'] = this.socialMedia;
     data['photo'] = this.photo;
-    data['price'] = this.price;
+    data['pdf_path'] = this.pdfPath;
+    data['statuse'] = this.statuse;
+    data['updated_at'] = this.updatedAt;
+    data['adderss_details'] = this.adderssDetails;
     return data;
   }
 }
+
+

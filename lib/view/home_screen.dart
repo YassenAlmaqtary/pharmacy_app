@@ -2,8 +2,10 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmacy/const/colors.dart';
 import 'package:pharmacy/view/medications/medications_screen.dart';
+import 'package:pharmacy/view/pharmacy/pharmacy_screen.dart';
 import 'package:pharmacy/view/search/screen_search.dart';
 import '../widget/custom_app_abar.dart';
+import 'gaz_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -17,12 +19,15 @@ class _HomeScreenState extends State<HomeScreen> {
   int current = 0;
   List<Widget> widgetItems = [
      MedicationsScreen(),
-    SearchScreen(),
-
+     PharmacyScreen(),
+     SearchScreen(),
+    //GazScreen(),
   ];
   List<String>titles=[
-    "الرئيسية",
-    "بحث"
+    "الادوية مع الاقسام",
+    "الصيدلايات",
+    "بحث",
+
   ];
   @override
   Widget build(BuildContext context) {
@@ -47,10 +52,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: whiteColor,
               ),
               Icon(
+                Icons.error,
+                size: 30,
+                color: whiteColor,
+              ),
+              Icon(
                 Icons.search,
                 size: 30,
                 color: whiteColor,
               ),
+
 
             ],
             onTap: (index) {

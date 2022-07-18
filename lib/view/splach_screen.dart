@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:pharmacy/view/home_screen.dart';
 import '../const/colors.dart';
@@ -18,7 +17,7 @@ class _SplachScreenState extends State<SplachScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer(const Duration(seconds: 3),
+    Timer(const Duration(seconds:10),
             ()=>Navigator.pushReplacement(context,
             MaterialPageRoute(builder:
                 (context) =>

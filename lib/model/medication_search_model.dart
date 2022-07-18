@@ -1,6 +1,3 @@
-
-import 'package:flutter/gestures.dart';
-
 class MedicationSearchModel {
   String? tradeName;
   int? id;
@@ -34,20 +31,44 @@ class Pharmacys {
   int? mypharmacyId;
   String? name;
   int? quntity;
+  String? address;
+  String? adderss_details;
+  String? socialMedia;
   int? price;
   String? mobile1;
+  String? mobile2;
+  String? productionDate;
+  String? expiryDate;
   String? photo;
 
   Pharmacys(
-      {this.mypharmacyId, this.name, this.quntity, this.price, this.mobile1,this.photo});
+      {this.mypharmacyId,
+        this.name,
+        this.quntity,
+        this.address,
+        this.socialMedia,
+        this.price,
+        this.mobile1,
+        this.mobile2,
+        this.productionDate,
+        this.expiryDate,
+        this.photo,
+        this.adderss_details,
+      });
 
   Pharmacys.fromJson(Map<String, dynamic> json) {
     mypharmacyId = json['mypharmacy_id'];
     name = json['name'];
     quntity = json['quntity'];
+    address = json['address'];
+    adderss_details=json['adderss_details'];
+    socialMedia = json['social_media'];
     price = json['price'];
     mobile1 = json['mobile1'];
-    photo=json['photo'];
+    mobile2 = json['mobile2'];
+    productionDate = json['production_date'];
+    expiryDate = json['expiry_date'];
+    photo = json['photo'];
   }
 
   Map<String, dynamic> toJson() {
@@ -55,9 +76,15 @@ class Pharmacys {
     data['mypharmacy_id'] = this.mypharmacyId;
     data['name'] = this.name;
     data['quntity'] = this.quntity;
+    data['address'] = this.address;
+    data['adderss_details']=this.adderss_details;
+    data['social_media'] = this.socialMedia;
     data['price'] = this.price;
     data['mobile1'] = this.mobile1;
-    data['photo']=this.photo;
+    data['mobile2'] = this.mobile2;
+    data['production_date'] = this.productionDate;
+    data['expiry_date'] = this.expiryDate;
+    data['photo'] = this.photo;
     return data;
   }
 }
